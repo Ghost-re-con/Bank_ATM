@@ -58,6 +58,32 @@ public class Bank implements ActionListener {
     JTextField amountWithdrawlCurrent = new JTextField();
     JButton withdrawlCurrentButton = new JButton("Withdrawl");
 
+    Bank(){
+
+       label.setFont(new Font("Consolas",Font.BOLD,20));
+       label.setBounds(45,10,250,40);
+
+       EnterPin.setFont(new Font("Consolas",Font.PLAIN,18));
+       EnterPin.setBounds(45,50,250,40);
+
+       pin.setFont(new Font("Consolas",Font.PLAIN,18));
+       pin.setBounds(45,80,250,40);
+
+       login.setFont(new Font("Consolas",Font.BOLD,18));
+       login.setFocusable(false);
+       login.setBounds(70,140,140,40);
+       login.addActionListener(this);
+
+
+       frame.setSize(400,400);
+       frame.setVisible(true);
+       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       frame.setLayout(null);
+       frame.add(label);
+       frame.add(EnterPin);
+       frame.add(pin);
+       frame.add(login);
+    }
 
     
 }
