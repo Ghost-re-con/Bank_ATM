@@ -84,6 +84,77 @@ public class Bank implements ActionListener {
        frame.add(pin);
        frame.add(login);
     }
+  public void ChooseAccTypeWindow(){
 
+        chooseAcctType.setFont(new Font("Consolas",Font.BOLD,20));
+        chooseAcctType.setBounds(70,20,250,40);
+
+        savings.setFont(new Font("Consolas",Font.BOLD,20));
+        savings.setFocusable(false);
+        savings.setBounds(10,140,150,40);
+        savings.addActionListener(this);
+
+        current.setFont(new Font("Consolas",Font.BOLD,20));
+        current.setFocusable(false);
+        current.setBounds(200,140,150,40);
+        current.addActionListener(this);
+
+
+        ChooseAcctType.setSize(400,400);
+        ChooseAcctType.setVisible(true);
+        ChooseAcctType.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ChooseAcctType.setLayout(null);
+        ChooseAcctType.add(chooseAcctType);
+        ChooseAcctType.add(savings);
+        ChooseAcctType.add(current);
+    }
+
+    public void ChooseSavingsWindow(){
+        whatDoYouWant.setFont(new Font("Consolas",Font.BOLD,20));
+        whatDoYouWant.setBounds(70,20,250,40);
+
+        depositSavings.setFont(new Font("Consolas",Font.BOLD,20));
+        depositSavings.setFocusable(false);
+        depositSavings.setBounds(70,100,150,40);
+        depositSavings.addActionListener(this);
+
+        withdrawlSavings.setFont(new Font("Consolas",Font.BOLD,20));
+        withdrawlSavings.setFocusable(false);
+        withdrawlSavings.setBounds(70,180,150,40);
+        withdrawlSavings.addActionListener(this);
+
+        chooseSavings.setSize(400,400);
+        chooseSavings.setVisible(true);
+        chooseSavings.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        chooseSavings.setLayout(null);
+        chooseSavings.add(whatDoYouWant);
+        chooseSavings.add(depositSavings);
+        chooseSavings.add(withdrawlSavings);
+
+    }
+
+    public void ChooseCurrentWindow(){
+        WhatDoYouWant.setFont(new Font("Consolas",Font.BOLD,20));
+        WhatDoYouWant.setBounds(70,20,250,40);
+
+        depositCurrent.setFont(new Font("Consolas",Font.BOLD,20));
+        depositCurrent.setFocusable(false);
+        depositCurrent.setBounds(70,100,150,40);
+        depositCurrent.addActionListener(this);
+
+        withdrawlCurrent.setFont(new Font("Consolas",Font.BOLD,20));
+        withdrawlCurrent.setFocusable(false);
+        withdrawlCurrent.setBounds(70,180,150,40);
+        withdrawlCurrent.addActionListener(this);
+
+        chooseCurrent.setSize(400,400);
+        chooseCurrent.setVisible(true);
+        chooseCurrent.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        chooseCurrent.setLayout(null);
+        chooseCurrent.add(WhatDoYouWant);
+        chooseCurrent.add(depositCurrent);
+        chooseCurrent.add(withdrawlCurrent);
+
+    }
     
 }
