@@ -157,4 +157,197 @@ public class Bank implements ActionListener {
 
     }
     
+  public void DepositSavingsWindow() {
+
+        enterDepositSavingsAmountLabel.setFont(new Font("Consolas", Font.BOLD, 20));
+        enterDepositSavingsAmountLabel.setBounds(45, 10, 250, 40);
+
+        amountDepositSavingsLabel.setFont(new Font("Consolas", Font.PLAIN, 18));
+        amountDepositSavingsLabel.setBounds(45, 50, 250, 40);
+
+        amountDepositSavings.setFont(new Font("Consolas", Font.PLAIN, 18));
+        amountDepositSavings.setBounds(45, 80, 250, 40);
+
+        depositSavingsButton.setFont(new Font("Consolas", Font.BOLD, 18));
+        depositSavingsButton.setFocusable(false);
+        depositSavingsButton.setBounds(70, 140, 140, 40);
+        depositSavingsButton.addActionListener(this);
+
+        DepositAmountSavings.setSize(400, 400);
+        DepositAmountSavings.setVisible(true);
+        DepositAmountSavings.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        DepositAmountSavings.setLayout(null);
+        DepositAmountSavings.add(enterDepositSavingsAmountLabel);
+        DepositAmountSavings.add(amountDepositSavingsLabel);
+        DepositAmountSavings.add(amountDepositSavings);
+        DepositAmountSavings.add(depositSavingsButton);
+    }
+
+    public void WithdrawlSavingsWindow() {
+
+        enterWithdrawlSavingsAmountLabel.setFont(new Font("Consolas", Font.BOLD, 20));
+        enterWithdrawlSavingsAmountLabel.setBounds(45, 10, 250, 40);
+
+        amountWithdrawlSavingsLabel.setFont(new Font("Consolas", Font.PLAIN, 18));
+        amountWithdrawlSavingsLabel.setBounds(45, 50, 250, 40);
+
+        amountWithdrawlSavings.setFont(new Font("Consolas", Font.PLAIN, 18));
+        amountWithdrawlSavings.setBounds(45, 80, 250, 40);
+
+        withdrawlSavingsButton.setFont(new Font("Consolas", Font.BOLD, 18));
+        withdrawlSavingsButton.setFocusable(false);
+        withdrawlSavingsButton.setBounds(70, 140, 140, 40);
+        withdrawlSavingsButton.addActionListener(this);
+
+        WithdrawlAmountSavings.setSize(400, 400);
+        WithdrawlAmountSavings.setVisible(true);
+        WithdrawlAmountSavings.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        WithdrawlAmountSavings.setLayout(null);
+        WithdrawlAmountSavings.add(enterWithdrawlSavingsAmountLabel);
+        WithdrawlAmountSavings.add(amountWithdrawlSavings);
+        WithdrawlAmountSavings.add(amountWithdrawlSavings);
+        WithdrawlAmountSavings.add(withdrawlSavingsButton);
+    }
+
+    public void DepositCurrentWindow() {
+
+        enterDepositCurrentAmountLabel.setFont(new Font("Consolas", Font.BOLD, 20));
+        enterDepositCurrentAmountLabel.setBounds(45, 10, 250, 40);
+
+        amountDepositCurrentLabel.setFont(new Font("Consolas", Font.PLAIN, 18));
+        amountDepositCurrent.setBounds(45, 50, 250, 40);
+
+        amountDepositCurrent.setFont(new Font("Consolas", Font.PLAIN, 18));
+        amountDepositCurrent.setBounds(45, 80, 250, 40);
+
+        depositCurrentButton.setFont(new Font("Consolas", Font.BOLD, 18));
+        depositCurrentButton.setFocusable(false);
+        depositCurrentButton.setBounds(70, 140, 140, 40);
+        depositCurrentButton.addActionListener(this);
+
+        DepositAmountCurrent.setSize(400, 400);
+        DepositAmountCurrent.setVisible(true);
+        DepositAmountCurrent.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        DepositAmountCurrent.setLayout(null);
+        DepositAmountCurrent.add(enterDepositCurrentAmountLabel);
+        DepositAmountCurrent.add(amountDepositCurrentLabel);
+        DepositAmountCurrent.add(amountDepositCurrent);
+        DepositAmountCurrent.add(depositCurrentButton);
+    }
+
+    public void WithdrawlCurrentWindow() {
+
+        enterWithdrawlCurrentAmountLabel.setFont(new Font("Consolas", Font.BOLD, 20));
+        enterWithdrawlCurrentAmountLabel.setBounds(45, 10, 250, 40);
+
+        amountWithdrawlCurrentLabel.setFont(new Font("Consolas", Font.PLAIN, 18));
+        amountWithdrawlCurrentLabel.setBounds(45, 50, 250, 40);
+
+        amountWithdrawlCurrent.setFont(new Font("Consolas", Font.PLAIN, 18));
+        amountWithdrawlCurrent.setBounds(45, 80, 250, 40);
+
+        withdrawlCurrentButton.setFont(new Font("Consolas", Font.BOLD, 18));
+        withdrawlCurrentButton.setFocusable(false);
+        withdrawlCurrentButton.setBounds(70, 140, 140, 40);
+        withdrawlCurrentButton.addActionListener(this);
+
+        WithdrawlAmountCurrent.setSize(400, 400);
+        WithdrawlAmountCurrent.setVisible(true);
+        WithdrawlAmountCurrent.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        WithdrawlAmountCurrent.setLayout(null);
+        WithdrawlAmountCurrent.add(enterWithdrawlCurrentAmountLabel);
+        WithdrawlAmountCurrent.add(amountWithdrawlCurrent);
+        WithdrawlAmountCurrent.add(amountWithdrawlCurrent);
+        WithdrawlAmountCurrent.add(withdrawlCurrentButton);
+    }
+
+
+    public  void depositSavingsFile(float amount){
+        try {
+            FileWriter fileWriter = new FileWriter("SavingFile.txt");
+            fileWriter.write("Date: "+new Date()+"\n"+"Amount: "+savingsAccount.DepositS(amount));
+            JOptionPane.showMessageDialog(null,"Transaction Complete");
+            fileWriter.close();
+        }catch(IOException e){
+            System.out.println("Cannot write to this file");
+        }
+    }
+
+    public  void withdrawlSavingsFile(float amount){
+        try {
+            FileWriter fileWriter = new FileWriter("SavingFile.txt");
+            if(savingsAccount.WithdrawlS(amount) == 0){
+                JOptionPane.showMessageDialog(null,"Cannot withdrawl over 20,000","Deposit too high",JOptionPane.ERROR_MESSAGE);
+            }else{
+                fileWriter.write("Date: "+new Date()+"\n"+"Amount: "+savingsAccount.WithdrawlS(amount));
+                JOptionPane.showMessageDialog(null,"Transaction Complete");
+            }
+            fileWriter.close();
+        }catch(IOException e){
+            System.out.println("Cannot write to this file");
+        }
+    }
+
+    public  void depositCurrentFile(float amount){
+        try {
+            FileWriter fileWriter = new FileWriter("CurrentFile.txt");
+            fileWriter.write("Date: "+new Date()+"\n"+"Amount: "+currentAccount.DepositC(amount));
+            JOptionPane.showMessageDialog(null,"Transaction Complete");
+            fileWriter.close();
+        }catch(IOException e){
+            System.out.println("Cannot write to this file");
+        }
+    }
+
+    public  void withdrawlCurrentFile(float amount){
+        try {
+            FileWriter fileWriter = new FileWriter("CurrentFile.txt");
+            fileWriter.write("Date: "+new Date()+"\n"+"Amount: "+savingsAccount.DepositC(amount));
+            JOptionPane.showMessageDialog(null,"Transaction Complete");
+            fileWriter.close();
+        }catch(IOException e){
+            System.out.println("Cannot write to this file");
+        }
+    }
+
+
+    public void actionPerformed(ActionEvent e){
+        if(e.getSource() == login){
+            if(pin.getText().equals(pinValue)){
+                ChooseAccTypeWindow();
+                frame.dispose();
+            }else{JOptionPane.showMessageDialog(null,"Pin is incorrect","Incorrect pin",JOptionPane.ERROR_MESSAGE);}
+        }else if(e.getSource() == savings) {
+            ChooseSavingsWindow();
+            ChooseAcctType.dispose();
+        }else if(e.getSource() == current){
+            ChooseCurrentWindow();
+            ChooseAcctType.dispose();
+        }else if(e.getSource() == depositSavings) {
+            DepositSavingsWindow();
+            chooseSavings.dispose();
+        }else if(e.getSource() == withdrawlSavings) {
+            WithdrawlSavingsWindow();
+            chooseSavings.dispose();
+        } else if (e.getSource() == depositCurrent) {
+            DepositCurrentWindow();
+            chooseCurrent.dispose();
+    } else if (e.getSource() == withdrawlCurrent) {
+            WithdrawlCurrentWindow();
+            chooseCurrent.dispose();
+        } else if (e.getSource() == depositSavingsButton) {
+            try{depositSavingsFile(Float.parseFloat(amountDepositSavings.getText()));}
+            catch (Exception f){JOptionPane.showMessageDialog(null,"Use only numbers","Error",JOptionPane.ERROR_MESSAGE);}
+        }else if (e.getSource() == withdrawlSavingsButton) {
+            try{withdrawlSavingsFile(Float.parseFloat(amountWithdrawlSavings.getText()));}
+            catch (Exception f){JOptionPane.showMessageDialog(null,"Use only numbers","Error",JOptionPane.ERROR_MESSAGE);}
+        }else if(e.getSource() == depositCurrentButton){
+            try{depositCurrentFile(Float.parseFloat(amountDepositCurrent.getText()));}
+            catch (Exception f){JOptionPane.showMessageDialog(null,"Use only numbers","Error",JOptionPane.ERROR_MESSAGE);}
+        } else if (e.getSource() == withdrawlCurrentButton) {
+            try{withdrawlCurrentFile(Float.parseFloat(amountWithdrawlCurrent.getText()));}
+            catch (Exception f){JOptionPane.showMessageDialog(null,"Use only numbers","Error",JOptionPane.ERROR_MESSAGE);}
+        }
+    }
+    
 }
